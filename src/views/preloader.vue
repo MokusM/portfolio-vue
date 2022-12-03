@@ -1,14 +1,14 @@
 <template>
-	<div class="preloader" :class="{ load: loader }">
-		<div class="preloader__center" ref="logo">
-			<div class="preloader__logo">
+	<div class="preloader">
+		<div class="preloader__center">
+			<div class="preloader__logo" ref="logo">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 299.5 306.6" role="presentation" x="0px" y="0px" xml:space="preserve">
-					<polygon fill="#FFFFFF" points="110.8,90.8 0,1.3 0.1,217.2 30.7,195.3 30.9,65.9 111,130.7 222,41 222,1.3 " class="logo-top"></polygon>
-					<polygon fill="#FFFFFF" points="191.3,105.3 191.1,234.8 111.1,169.9 0,259.7 0,299.3 111.2,209.8 222,299.3 221.9,83.5 " class="logo-bottom"></polygon>
+					<polygon fill="#FFFFFF" points="0,0 111,0 222,0 222,154 111,154 30,154 30,154 0,154" ref="logoTop" class="logo-top"></polygon>
+					<polygon fill="#FFFFFF" points="0,152 111,152 192,152 192,152 222,152 222,306 111,306 0,306" ref="logoBottom" class="logo-bottom"></polygon>
 					<g>
 						<defs><rect id="SVGID_1_" width="299.5" height="306.6"></rect></defs>
 						<clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow: visible"></use></clipPath>
-						<g class="st1">
+						<g class="st1" ref="lastName">
 							<path fill="#FFFFFF" d="M238.2,254.5h46.1v1.6h-42.8l29.9,20.5v1l-29.9,20.5h42.8v1.6h-46.1v-1.3l31.1-21.3l-31.1-21.4V254.5z"></path>
 							<path
 								fill="#FFFFFF"
@@ -39,28 +39,28 @@ import { ref, onMounted } from 'vue';
 import { gsap } from 'gsap';
 export default {
 	setup() {
-		const loader = ref(false);
 		const logo = ref(null);
-
-		setTimeout(() => {
-			loader.value = true;
-		}, 4000);
+		const logoTop = ref(null);
+		const logoBottom = ref(null);
+		const lastName = ref(null);
 
 		onMounted(() => {
-			gsap.to(logo.value, { rotation: '+=360' });
+			gsap.timeline({ delay: 1.5, defaults: { duration: 0.5 } }).fromTo(logo.value, { opacity: 0 }, { opacity: 1, duration: 1.5 });
+			gsap.timeline({ delay: 1, defaults: { duration: 2 } }).to(logoTop.value, { attr: { points: '0,0 111,94 222,0 222,42 111,135 30,67 30,202 0,225' } });
+			gsap.timeline({ delay: 1, defaults: { duration: 2 } }).to(logoBottom.value, { attr: { points: '0,264 111,168 192,238 192,99 222,75 222,306 111,211 0,306' } });
+			gsap.timeline({ delay: 2, defaults: { duration: 2 } }).fromTo(lastName.value, { opacity: 0 }, { opacity: 1, duration: 1 });
 		});
 
 		return {
-			loader,
 			logo,
+			logoTop,
+			logoBottom,
+			lastName,
 		};
 	},
 };
 </script>
 <style lang="scss" scoped>
-.loaded .main-wrapper {
-	visibility: hidden;
-}
 .preloader {
 	position: fixed;
 	z-index: 200;
@@ -130,25 +130,6 @@ export default {
 		img {
 			width: 100%;
 		}
-
-		.st1 {
-			opacity: 0;
-			transform: translateX(80px);
-			transition: all 4s 0.3s;
-		}
-		.logo-bottom {
-			transform: translateY(80px);
-		}
-
-		.logo-bottom,
-		.logo-top {
-			opacity: 0;
-			transition: all 3s 0.1s;
-		}
-
-		.logo-top {
-			transform: translateY(-80px);
-		}
 	}
 
 	&.load {
@@ -181,15 +162,5 @@ export default {
 	to {
 		width: 100%;
 	}
-}
-
-.web .st1 {
-	opacity: 1;
-	transform: translateX(0);
-}
-.web .logo-bottom,
-.web .logo-top {
-	opacity: 1;
-	transform: translateY(0);
 }
 </style>
