@@ -8,12 +8,12 @@
 </template>
 
 <script>
-import preloader from "./views/preloader";
-import MainViews from "./views/MainViews";
-import about from "./views/About";
-import HeaderPage from "./components/HeaderPage";
+import preloader from './views/preloader';
+import MainViews from './views/MainViews';
+import about from './views/About';
+import HeaderPage from './components/HeaderPage';
 export default {
-	name: "App",
+	name: 'App',
 	components: {
 		preloader,
 		MainViews,

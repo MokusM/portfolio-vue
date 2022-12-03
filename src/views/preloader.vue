@@ -35,8 +35,8 @@
 	</div>
 </template>
 <script>
-import { ref, onMounted } from "vue";
-import { gsap } from "gsap";
+import { ref, onMounted } from 'vue';
+import { gsap } from 'gsap';
 export default {
 	setup() {
 		const loader = ref(false);
@@ -47,7 +47,7 @@ export default {
 		}, 4000);
 
 		onMounted(() => {
-			gsap.to(logo.value, { rotation: "+=360" });
+			gsap.to(logo.value, { rotation: '+=360' });
 		});
 
 		return {
@@ -77,7 +77,7 @@ export default {
 		position: absolute;
 		width: 100%;
 		height: 50%;
-		content: "";
+		content: '';
 		background-color: #000;
 		transition: all 0.4s cubic-bezier(0.63, 1, 0.3, 1) 0.4s;
 		background-attachment: fixed;
@@ -106,7 +106,7 @@ export default {
 		text-align: center;
 
 		&::after {
-			content: "";
+			content: '';
 			position: absolute;
 			left: 0;
 			bottom: 11px;

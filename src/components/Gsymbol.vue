@@ -6,8 +6,8 @@
 
 <script>
 export default {
-	name: "GSymbol",
-	props: ["name"],
+	name: 'GSymbol',
+	props: ['name'],
 };
 </script>
 
