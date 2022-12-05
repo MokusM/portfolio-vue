@@ -1,32 +1,47 @@
 <template>
 	<div class="main-wrapper" :class="{ load: loader }">
 		<full-page ref="fullpage" :options="options" id="fullpage">
-			<main-views class="section" />
-			<about class="section" />
+			<section-main />
+			<section-about />
 		</full-page>
-		<header-page />
+		<header-page v-model="draw" />
+		<main-nav v-show="draw" />
 	</div>
 	<preloader :class="{ load: loader }" />
 </template>
 
 <script>
 import preloader from './views/preloader';
-import MainViews from './views/MainViews';
-import about from './views/About';
+import SectionMain from './views/SectionMain';
+import SectionAbout from './views/SectionAbout';
 import HeaderPage from './components/HeaderPage';
+import FullPageNav from './components/FullPageNav';
+import MainNav from './components/MainNav';
 
 import { ref } from 'vue';
 export default {
 	name: 'App',
 	components: {
 		preloader,
-		MainViews,
-		about,
+		SectionMain,
+		SectionAbout,
 		HeaderPage,
+		FullPageNav,
+		MainNav,
 	},
 
 	setup() {
 		const loader = ref(false);
+		const draw = ref(false);
+
+		const options = {
+			licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
+			//anchors: ['main', 'about', 'tecnhology', 'paint', 'study', 'portfolio', 'contact'],
+			anchors: ['main', 'about'],
+			menu: '#js-menu',
+			scrollingSpeed: 400,
+			navigation: !0,
+		};
 
 		setTimeout(() => {
 			loader.value = true;
@@ -34,13 +49,11 @@ export default {
 
 		return {
 			loader,
+			options,
+			draw,
 		};
 	},
 };
 </script>
 
-<style lang="scss">
-.main-wrapper:not(.load) {
-	visibility: hidden;
-}
-</style>
+<style lang="scss"></style>

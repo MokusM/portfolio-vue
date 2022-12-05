@@ -32,7 +32,177 @@
 					</g>
 				</svg>
 			</a>
-			<a href="#contact" class="btn btn-border">Зв'язатися зі мною</a><a href="#" class="button-nav"><span></span></a>
+			<a href="#contact" class="btn btn-border">Зв'язатися зі мною</a>
+			<button class="button-nav" :class="{ active: draw }" @click="onDrawChange"><span></span></button>
 		</div>
 	</header>
 </template>
+<script>
+import { ref } from 'vue';
+import { gsap } from 'gsap';
+export default {
+	props: {
+		isMenu: {
+			type: Boolean,
+			default: false,
+		},
+	},
+	emits: ['update:modelValue'],
+	setup(props, { emit }) {
+		const draw = ref(props.isMenu);
+
+		const onDrawChange = () => {
+			draw.value = !draw.value;
+			emit('update:modelValue', draw.value);
+			if (draw.value) {
+				gsap.timeline({ delay: 0.5, defaults: { duration: 0.5 } }).fromTo('.main-nav', { opacity: 0 }, { opacity: 1, duration: 1.5 });
+			}
+		};
+
+		return {
+			onDrawChange,
+			draw,
+		};
+	},
+};
+</script>
+<style lang="scss" scoped>
+header {
+	background: transparent;
+	width: 100%;
+	min-width: 320px;
+	text-align: left;
+	order: 1;
+	z-index: 2555;
+	padding-top: 38px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	.wrapper {
+		display: flex;
+		align-items: center;
+		padding-right: 110px;
+	}
+	.btn-border {
+		margin: 0 50px 0 auto;
+	}
+}
+.logo {
+	width: 80px;
+	display: block;
+	img {
+		display: block;
+		width: 100%;
+	}
+	svg {
+		width: 100%;
+	}
+}
+.btn {
+	display: inline-block;
+}
+.btn-border {
+	color: #fff;
+	font-size: 16px;
+	line-height: 18px;
+	font-weight: 700;
+	text-transform: uppercase;
+	height: 54px;
+	border: 1px solid #fff;
+	padding: 17px 28px 0;
+	position: relative;
+	&:before {
+		width: 0;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		content: '';
+		background: #fff;
+		transition: all 0.26s ease-in-out 0s;
+		z-index: -1;
+	}
+	&:hover {
+		color: #000;
+		&:before {
+			width: 100%;
+		}
+	}
+}
+.button-nav {
+	width: 38px;
+	height: 38px;
+	position: fixed;
+	right: 108px;
+	top: 60px;
+	z-index: 125;
+	background: transparent;
+	padding: 0;
+	border: none;
+	display: block;
+	&:hover {
+		span {
+			opacity: 0.6;
+		}
+	}
+	span {
+		position: absolute;
+		width: 100%;
+		top: 50%;
+		margin-top: -2px;
+		transition-duration: 0.2s;
+		display: block;
+		height: 4px;
+		border-radius: 3px;
+		background-color: #fff;
+		&:after {
+			display: block;
+			height: 4px;
+			border-radius: 3px;
+			background-color: #fff;
+			content: '';
+			position: absolute;
+			width: 38px;
+			transition-duration: 0.15s;
+			transition-property: transform;
+			transition-delay: 0.1s;
+			transition-duration: 0s;
+			bottom: -10px;
+		}
+		&:before {
+			display: block;
+			height: 4px;
+			border-radius: 3px;
+			background-color: #fff;
+			content: '';
+			position: absolute;
+			width: 38px;
+			transition-duration: 0.15s;
+			transition-property: transform;
+			transition-delay: 0.1s;
+			transition-duration: 0s;
+			top: -10px;
+		}
+	}
+
+	&.active {
+		span {
+			z-index: 255;
+			transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+			transform: rotate(765deg);
+			&:after {
+				transition-delay: 0s;
+				bottom: 0;
+				transform: rotate(90deg);
+				transition-property: bottom, transform;
+			}
+			&:before {
+				transition-delay: 0s;
+				top: 0;
+				opacity: 0;
+				transition-property: top, opacity;
+			}
+		}
+	}
+}
+</style>

@@ -45,7 +45,7 @@ export default {
 		const lastName = ref(null);
 
 		onMounted(() => {
-			gsap.timeline({ delay: 1.5, defaults: { duration: 0.5 } }).fromTo(logo.value, { opacity: 0 }, { opacity: 1, duration: 1.5 });
+			gsap.timeline({ delay: 0.5, defaults: { duration: 0.5 } }).fromTo(logo.value, { opacity: 0 }, { opacity: 1, duration: 1.5 });
 			gsap.timeline({ delay: 1, defaults: { duration: 2 } }).to(logoTop.value, { attr: { points: '0,0 111,94 222,0 222,42 111,135 30,67 30,202 0,225' } });
 			gsap.timeline({ delay: 1, defaults: { duration: 2 } }).to(logoBottom.value, { attr: { points: '0,264 111,168 192,238 192,99 222,75 222,306 111,211 0,306' } });
 			gsap.timeline({ delay: 2, defaults: { duration: 2 } }).fromTo(lastName.value, { opacity: 0 }, { opacity: 1, duration: 1 });

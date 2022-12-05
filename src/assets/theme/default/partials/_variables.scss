@@ -1,0 +1,226 @@
+$rem: 14px;
+
+// Typography
+$font-primary: 'Open-Sans', sans-serif;
+$font-title: 'Manrope', sans-serif;
+
+$heading-h1: 64px;
+$heading-h2: 56px;
+$heading-h3: 48px;
+$heading-h4: 36px;
+$heading-h5: 24px;
+$heading-h6: 18px;
+
+$text-xl: 24px;
+$text-lg: 18px;
+$text-md: 16px;
+$text-sm: 15px;
+$text-xs: 13px;
+
+// Colors
+// Main
+$primary: #144bff;
+$primary-hover: #0637e4;
+$primary-disabled: #96aeff;
+
+$secondary: #545dfc;
+$secondary-hover: #3e46e3;
+$secondary-disabled: #737aff;
+
+// Alerts
+$success: #22c55e;
+$success-hover: #16a34a;
+
+$warning: #facc15;
+$warning-hover: #eab308;
+
+$danger: #ff4747;
+$danger-hover: #dd3333;
+
+// Additional Colors
+$main-text-color: #040517; //Grayscale/900
+$header-button-color: #101024; //Grayscale/800
+$button-login-bg: #2a273f; //Grayscale/700
+$title-text-color: #6e7191; //Grayscale/600
+$disabled-color: #a0a3bd; //Grayscale/500
+$separator-color: #d9dbe9; //Grayscale/400
+$disabled: #eff0f6; //Grayscale/300
+$field-bg: #f7f7fc; //Grayscale/200
+
+$bar-bg: #fcfcfc;
+$env-bg: #ffffff;
+
+$sidebar-color: #ffffff;
+$sidebar-bg: $primary;
+
+$navbar-color: $title-text-color;
+$navbar-active-color: #ffffff;
+
+$env-gap: 0;
+
+$topbar-height: 104px;
+$navbar-width: 250px;
+$leftbar-width: 250px;
+$rightbar-width: 440px;
+$min-width: 320px;
+
+$rounding: 12px;
+$rounding-lg: 16px;
+
+// Home page
+$home-page-bg: $main-text-color;
+$home-page-color: #ffffff;
+$home-page-sub-title-color: $title-text-color;
+$home-page-button-rounding: 10px;
+$home-page-button-color: #ffffff;
+$home-page-button-login: $button-login-bg;
+$home-page-button-login-hover: $title-text-color;
+
+// Header Profile Menu
+$profile-menu-button-bg: $field-bg;
+$profile-menu-button-color: $header-button-color;
+$profile-menu-button-active-color: #ffffff;
+$profile-menu-bg: #ffffff;
+$profile-menu-rounding: $rounding;
+$profile-menu-shadow: 8px 16px 32px rgba(113 128 150 / 8%);
+$profile-menu-icon-color: $disabled-color;
+
+// Inputs
+$input-rounding: $rounding;
+$input-height-large: 58px;
+$input-height-medium: 46px;
+$input-height-small: 30px;
+$input-height: $input-height-medium;
+$input-bg: $field-bg;
+$input-active-bg: #ffffff;
+$input-border: $separator-color;
+$input-label-color: $title-text-color;
+$input-font-size: $text-md;
+$input-font-size-sm: $text-sm;
+$input-hint-color: $disabled-color;
+
+$label-font-size: $text-md;
+$label-focus-font-size: $text-xs;
+$label-color: $title-text-color;
+$label-disabled-color: $disabled-color;
+
+$textarea-rounding: $rounding;
+
+// Checkbox
+$checkbox-bg: $separator-color;
+$checkbox-bg-hover: $disabled-color;
+$checkbox-bg-disabled: $disabled;
+$checkbox-color-disabled: $disabled-color;
+$checkbox-font-size: $text-sm;
+$checkbox-rounding: 6px;
+
+// Switch
+$switch-rounding: $rounding;
+$switch-height: 24px;
+$switch-width: 44px;
+$switch-circle: 20px;
+
+$switch-bg-color: $field-bg;
+$switch-active-bg-color: $secondary;
+$switch-disabled-color: $disabled;
+$switch-disabled-active-bg: $secondary-disabled;
+$switch-circle-bg: #ffffff;
+
+// Scrollbar-size
+$scrollbar-size: 1px;
+$scrollbar-color: #999999;
+$scrollbar-thumb-size: 7px;
+$scrollbar-thumb-color: $primary;
+
+// Buttons
+$button-rounding-large: $rounding-lg;
+$button-rounding-medium: $rounding;
+$button-rounding-small: 10px;
+$button-height-large: 60px;
+$button-height-medium: 48px;
+$button-height-small: 32px;
+$button-font-size: $text-lg;
+$button-font-size-small: $text-md;
+$button-default-border: $separator-color;
+$button-default-border-hover: $title-text-color;
+$button-default-bg: #ffffff;
+$button-disabled-bg: #ffffff;
+
+$button-primary-color: #ffffff;
+
+$button-notification-bg: $field-bg;
+$button-notification-color: $header-button-color;
+
+//currency
+$btc: #ff8c00;
+//$eth: #8c8c8c;
+$eth: #007bff;
+//$xtz: #007bff;
+//$uni: #ff007b;
+$trx: #ef0027;
+$usdt: #26a17b;
+
+$payment-card-color: white;
+
+// Select
+$select-rounding: $rounding;
+$select-bg: $field-bg;
+$select-border: $separator-color;
+
+// Dropdown
+$dropdown-height: $input-height;
+$dropdown-border: $input-border;
+$dropdown-list-border: $separator-color;
+$dropdown-rounding: $select-rounding;
+$dropdown-bg: #fcfcfc;
+$dropdown-color: #ffffff;
+
+// Badge
+$badge-rounding: 8px;
+$badge-height: 40px;
+$badge-height-sm: 32px;
+$badge-font-size: 14px;
+$badge-bg: #ffffff;
+$badge-border: $separator-color;
+$badge-primary-bg: rgba($primary, 10%);
+$badge-secondary-bg: rgba($secondary, 10%);
+$badge-success-bg: rgba($success, 10%);
+$badge-danger-bg: rgba($danger, 10%);
+$badge-warning-bg: rgba($warning, 10%);
+
+// Tabs
+$tab-underline: $separator-color;
+$tab-bg: $disabled;
+$active-tab-bg: $button-login-bg;
+$tab-text-color: $disabled-color;
+$tab-active-text-color: #ffffff;
+
+//hint
+$hint-bg: #a0aec0;
+$hint-color: #ffffff;
+
+//Chart
+$chart-bar-bg: $separator-color;
+$chart-bar-color: $disabled;
+
+//Popup
+$popup-bg: #ffffff;
+$popup-width: 564px;
+$popup-overlay: rgba($main-text-color, 60%);
+
+// DateField
+$date-picker-rounding: $rounding;
+$date-picker-text-xs: $text-xs;
+$date-picker-text-sm: $text-sm;
+$date-picker-text-base: $text-md;
+$date-picker-text-lg: $text-lg;
+$date-picker-color: $main-text-color;
+$date-picker-bg: #ffffff;
+$date-picker-primary: $primary;
+$date-picker-primary-hover: $primary-hover;
+$date-picker-secondary: #a0aec0;
+$date-picker-secondary-hover: #e2e8f0;
+$date-picker-checked-cell: #b5b8f2;
+
+// Corporate box-shadows
+$box-shadow: 0 9px 46px rgba(0 0 0 / 12%);

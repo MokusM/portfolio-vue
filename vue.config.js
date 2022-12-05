@@ -9,6 +9,11 @@ module.exports = {
 	chainWebpack: (config) => {
 		// TODO move to register
 
-		config.resolve.alias.set('~', resolve('src')).set('@components', resolve('src/components')).set('@views', resolve('src/views')).set('@img', resolve('src/assets/img'));
+		config.resolve.alias
+			.set('~', resolve('src'))
+			.set('@components', resolve('src/components'))
+			.set('@views', resolve('src/views'))
+			.set('@img', resolve('src/assets/img'))
+			.set('@assets', resolve('src/assets'));
 	},
 };
