@@ -39,7 +39,7 @@
 </template>
 <script>
 import { ref } from 'vue';
-import { gsap } from 'gsap';
+import { gsap, Power1 } from 'gsap';
 export default {
 	props: {
 		isMenu: {
@@ -53,9 +53,17 @@ export default {
 
 		const onDrawChange = () => {
 			draw.value = !draw.value;
+			var tl = gsap.timeline();
 			emit('update:modelValue', draw.value);
+
 			if (draw.value) {
-				gsap.timeline({ delay: 0.5, defaults: { duration: 0.5 } }).fromTo('.main-nav', { opacity: 0 }, { opacity: 1, duration: 1.5 });
+				tl.set('.main-nav', { x: 1.3 * window.innerWidth, rotate: -14, scale: 1.5, transformOrigin: '50% 50%' });
+				tl.to('.main-nav', 0.5, { x: 0, ease: Power1.easeOut });
+				tl.to('.main-nav', 1, { rotate: 0, scale: 1, ease: Power1.easeOut }).fromTo('.main-nav-list', 1, { autoAlpha: 0, scale: 0 }, { autoAlpha: 1, scale: 1, ease: Power1.easeOut });
+			} else {
+				tl.to('.main-nav-list', 1, { autoAlpha: 0, ease: Power1.easeOut })
+					.to('.main-nav-list', 1, { scale: 0, ease: Power1.easeOut }, '-=0.7')
+					.to('.main-nav', 1, { rotate: -14, scale: 1.5, autoAlpha: 0, ease: Power1.easeOut }, '-=0.9');
 			}
 		};
 
